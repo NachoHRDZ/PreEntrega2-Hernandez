@@ -29,9 +29,9 @@ function mostrarProductos() {
 }
 
 function comprarProducto(dineroUsuario, dulceSeleccionado) {
-    let totalGastado = 0; // Variable para rastrear el total gastado
+    let totalGastado = 0; 
 
-    if (!dulceSeleccionado) { // Comprobamos si el usuario presionó 'Cancelar' o cerró el cuadro de diálogo
+    if (!dulceSeleccionado) { 
         cambioTotal = dineroUsuario;
         return;
     }
@@ -40,11 +40,11 @@ function comprarProducto(dineroUsuario, dulceSeleccionado) {
         if (precios.hasOwnProperty(dulceSeleccionado)) {
             const { nombre, precio } = precios[dulceSeleccionado];
             if (dineroUsuario >= precio) {
-                dineroUsuario -= precio; // Restar el precio del dulce del dinero del usuario
-                totalGastado += precio; // Agregar el precio del dulce al total gastado
+                dineroUsuario -= precio; // Resta el precio del dulce del dinero
+                totalGastado += precio; // Agrega el precio del dulce al total gastado
                 const respuesta = prompt("¡Disfruta tu " + nombre + "! Tu dinero restante es de " + dineroUsuario.toFixed(2) + " pesos. ¿Deseas comprar otro producto? (Sí/No)").toLowerCase();
                 if (respuesta !== 'si') {
-                    cambioTotal = parseFloat(dineroUsuario.toFixed(2)); // Calcular el cambio total restando el total gastado del dinero inicial
+                    cambioTotal = parseFloat(dineroUsuario.toFixed(2)); // Calcula el cambio total restando el total gastado del dinero inicial
                     break; // Salir del bucle si la respuesta no es 'si'
                 } else {
                     dulceSeleccionado = mostrarProductos();
